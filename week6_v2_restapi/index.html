@@ -1,0 +1,63 @@
+//AI: https://share.gemini.google/QqThFhlxuWFx
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V2 Task Tracker Kuliah</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://fuaddary.github.io/Pemrograman-Web/assets/mock-api-kampus.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="browser">
+    <header class="browser-bar" aria-label="Toolbar simulasi browser">
+      <span class="bdot red" aria-hidden="true"></span>
+      <span class="bdot yellow" aria-hidden="true"></span>
+      <span class="bdot green" aria-hidden="true"></span>
+      <span class="burl">demo · task-tracker/index.html</span>
+      <label class="visually-hidden" for="net-select">Simulasi jaringan</label>
+      <select id="net-select" class="net-select" title="Simulasi jaringan">
+        <option value="normal">Normal</option>
+        <option value="lambat">Lambat</option>
+        <option value="tidakstabil">Tidak stabil</option>
+        <option value="offline">Offline</option>
+        <option value="error500">Server 500</option>
+      </select>
+      <button id="reload" class="reload" type="button" aria-label="Muat ulang tugas">↻</button>
+    </header>
+
+    <section class="browser-frame">
+      <div class="app">
+        <h1>📋 Task Tracker Kuliah <small>v2 · REST API</small></h1>
+
+        <form id="form" novalidate>
+          <input
+            name="judul"
+            type="text"
+            placeholder="Judul tugas (min. 3 karakter)"
+            autocomplete="off"
+            required
+          >
+          <div class="baris">
+            <select name="matkul" aria-label="Mata kuliah"></select>
+            <input name="deadline" type="date" aria-label="Deadline" required>
+            <button type="submit" id="simpan">Tambah</button>
+          </div>
+          <p id="err" class="err" role="alert"></p>
+        </form>
+
+        <nav class="filter" id="filter" aria-label="Filter tugas">
+          <button type="button" data-f="semua" class="on">Semua</button>
+          <button type="button" data-f="aktif">Aktif</button>
+          <button type="button" data-f="selesai">Selesai</button>
+          <span id="counter" class="counter"></span>
+        </nav>
+
+        <p id="info" class="info" role="status" aria-live="polite"></p>
+        <ul id="list" aria-label="Daftar tugas"></ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
