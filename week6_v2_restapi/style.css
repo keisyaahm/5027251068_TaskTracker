@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  background: #eaf0f4;
+  color: #1d2b36;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.browser {
+  width: 100%;
+  max-width: 1000px;
+  align-self: flex-start;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d7e1e8;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f0f4f8;
+  border-bottom: 1px solid #d7e1e8;
+}
+
+.bdot {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f56;
+}
+
+.yellow {
+  background: #ffbd2e;
+}
+
+.green {
+  background: #27c93f;
+}
+
+.burl {
+  flex: 1;
+  min-width: 0;
+  margin-left: 8px;
+  padding: 7px 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d7e1e8;
+  border-radius: 5px;
+  color: #5d7a91;
+  font-family: monospace;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.net-select,
+.reload {
+  min-height: 38px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #b7c9d6;
+  border-radius: 6px;
+  color: #385269;
+}
+
+.net-select {
+  max-width: 160px;
+}
+
+.reload {
+  min-width: 40px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.browser-frame {
+  padding: 22px 28px 32px;
+}
+
+.app {
+  width: 100%;
+  font-size: 16px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+h1 small {
+  color: #5d7a91;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+#form {
+  margin: 0 0 22px;
+}
+
+#form input[name="judul"],
+.baris select,
+.baris input {
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid #b7c9d6;
+  border-radius: 8px;
+  color: #1d2b36;
+  font-size: 16px;
+}
+
+#form input[name="judul"] {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+#form input:focus,
+#form select:focus {
+  border-color: #537d9c;
+  outline: 3px solid rgba(83, 125, 156, 0.15);
+}
+
+.baris {
+  display: flex;
+  gap: 8px;
+}
+
+.baris select,
+.baris input {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+}
+
+.baris button {
+  min-height: 48px;
+  padding: 10px 18px;
+  background: #132a3e;
+  border: 1px solid #132a3e;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.err {
+  min-height: 1em;
+  margin: 6px 0 0;
+  color: #b23a26;
+  font-size: 13px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.filter button {
+  min-height: 36px;
+  padding: 6px 14px;
+  background: #fff;
+  border: 1px solid #b7c9d6;
+  border-radius: 7px;
+  color: #132a3e;
+  cursor: pointer;
+}
+
+.filter button.on {
+  background: #132a3e;
+  border-color: #132a3e;
+  color: #fff;
+}
+
+.counter {
+  margin-left: auto;
+  color: #5d7a91;
+  font-size: 14px;
+}
+
+.info {
+  min-height: 1em;
+  margin: 0 0 8px;
+  color: #5d7a91;
+  font-size: 14px;
+}
+
+.info.err2 {
+  color: #b23a26;
+  font-weight: 600;
+}
+
+.info button {
+  margin-left: 6px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #b7c9d6;
+  border-radius: 6px;
+  color: #132a3e;
+  cursor: pointer;
+}
+
+#list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #d7e1e8;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+#list li.done .judul {
+  color: #8fa5b5;
+  text-decoration: line-through;
+}
+
+#list li.proses {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cek {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.isi {
+  flex: 1;
+  min-width: 0;
+}
+
+.judul {
+  margin-bottom: 3px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  color: #5d7a91;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.hapus {
+  min-width: 38px;
+  min-height: 36px;
+  padding: 4px 9px;
+  background: #fff;
+  border: 1px solid #e3b2a8;
+  border-radius: 7px;
+  color: #b23a26;
+  cursor: pointer;
+}
+
+.hapus:hover {
+  background: #fff5f3;
+}
+
+.kosong {
+  justify-content: center;
+  padding: 20px;
+  color: #8fa5b5;
+  font-style: italic;
+}
+
+.skel {
+  height: 58px;
+  background: linear-gradient(90deg, #eef3f7 25%, #e1e9ef 50%, #eef3f7 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .browser-bar {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .bdot {
+    width: 9px;
+    height: 9px;
+    flex-basis: 9px;
+  }
+
+  .burl {
+    margin-left: 2px;
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  .net-select {
+    width: 104px;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .reload {
+    min-width: 34px;
+    min-height: 34px;
+    padding: 3px;
+  }
+
+  .browser-frame {
+    padding: 18px 14px 24px;
+  }
+
+  h1 {
+    font-size: 19px;
+  }
+
+  h1 small {
+    font-size: 12px;
+  }
+
+  .baris {
+    flex-direction: column;
+  }
+
+  .baris button {
+    width: 100%;
+  }
+
+  .filter {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .filter button {
+    flex: 1;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .counter {
+    width: 100%;
+    text-align: right;
+  }
+
+  #list li {
+    gap: 10px;
+    padding: 10px;
+  }
+}
