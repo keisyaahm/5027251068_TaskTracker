@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 32px 20px;
+  background: #f4f7f9;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Simulasi jendela browser */
+.browser {
+  width: 100%;
+  max-width: 760px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d7e1e8;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f0f4f8;
+  border-bottom: 1px solid #d7e1e8;
+}
+
+.bdot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f56;
+}
+
+.yellow {
+  background: #ffbd2e;
+}
+
+.green {
+  background: #27c93f;
+}
+
+.burl {
+  flex: 1;
+  margin-left: 8px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #d7e1e8;
+  border-radius: 4px;
+  color: #5d7a91;
+  font-family: monospace;
+  font-size: 13px;
+  text-align: center;
+}
+
+.brun {
+  min-height: 0;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid #d7e1e8;
+  border-radius: 4px;
+  color: #5d7a91;
+  cursor: pointer;
+}
+
+.browser-frame {
+  padding: 32px;
+}
+
+/* Konten task tracker */
+.app {
+  color: #1d2b36;
+  font-size: 16px;
+}
+
+h3 {
+  margin: 0 0 20px;
+  font-size: 24px;
+}
+
+input,
+select,
+button {
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid #b7c9d6;
+  border-radius: 7px;
+  font: inherit;
+}
+
+#form input[name="judul"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.baris {
+  display: flex;
+  gap: 10px;
+}
+
+.baris select,
+.baris input {
+  flex: 1;
+  min-width: 0;
+}
+
+.baris button {
+  padding-right: 20px;
+  padding-left: 20px;
+  background: #132a3e;
+  border: 1px solid #132a3e;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.err {
+  min-height: 1em;
+  margin: 8px 0 0;
+  color: #b23a26;
+  font-size: 14px;
+}
+
+/* Filter dan jumlah tugas */
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.filter button {
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #b7c9d6;
+  color: #132a3e;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filter button.on {
+  background: #132a3e;
+  color: #fff;
+}
+
+.counter {
+  margin-left: auto;
+  color: #5d7a91;
+  font-size: 14px;
+}
+
+/* Daftar tugas */
+#list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #d7e1e8;
+  border-radius: 8px;
+}
+
+#list li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+#list li.done .judul {
+  color: #8fa5b5;
+  text-decoration: line-through;
+}
+
+.isi {
+  flex: 1;
+  min-width: 0;
+}
+
+.judul {
+  margin-bottom: 4px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  color: #8fa5b5;
+  font-size: 14px;
+}
+
+.hapus {
+  min-width: 44px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #e3b2a8;
+  border-radius: 6px;
+  color: #b23a26;
+  cursor: pointer;
+}
+
+.hapus:hover {
+  background: #fef2f2;
+}
+
+.kosong {
+  justify-content: center;
+  padding: 24px;
+  color: #8fa5b5;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Tata letak ponsel */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  .browser {
+    border-radius: 8px;
+  }
+
+  .browser-bar {
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .bdot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .burl {
+    margin-left: 4px;
+    padding: 5px 6px;
+    font-size: 11px;
+  }
+
+  .browser-frame {
+    padding: 18px 14px;
+  }
+
+  h3 {
+    margin-bottom: 16px;
+    font-size: 21px;
+  }
+
+  .baris {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .baris button {
+    width: 100%;
+  }
+
+  .filter {
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 16px 0;
+  }
+
+  .filter button {
+    flex: 1;
+    padding: 8px 10px;
+  }
+
+  .counter {
+    width: 100%;
+    text-align: right;
+  }
+
+  #list li {
+    gap: 10px;
+    padding: 12px 10px;
+  }
+
+  .judul {
+    font-size: 15px;
+  }
+
+  .meta {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+}
